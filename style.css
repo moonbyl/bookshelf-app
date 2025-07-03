@@ -1,0 +1,216 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Mode terang default */
+body {
+  background-color: #f4f6f8;
+  color: #222;
+  padding: 2rem;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Mode gelap */
+body.dark-mode {
+  background-color: #121212;
+  color: #f0f0f0;
+}
+
+/* Header */
+header h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  transition: color 0.3s;
+}
+
+/* Section title */
+main section h2 {
+  font-size: 1.4rem;
+  margin-bottom: 0.75rem;
+  color: inherit;
+}
+
+/* Form Tambah & Cari Buku */
+form {
+  background: #ffffff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark-mode form {
+  background-color: #1e1e1e;
+}
+
+/* Elemen dalam form */
+form > div {
+  margin-bottom: 1rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="checkbox"] {
+  width: 100%;
+  padding: 0.6rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  transition: background-color 0.3s, color 0.3s, border 0.3s;
+}
+
+input[type="checkbox"] {
+  width: auto;
+  transform: scale(1.2);
+}
+
+/* Dark mode untuk input */
+body.dark-mode input[type="text"],
+body.dark-mode input[type="number"],
+body.dark-mode input[type="checkbox"] {
+  background-color: #1f1f1f;
+  color: #fff;
+  border: 1px solid #555;
+}
+
+/* Tombol umum */
+button {
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  margin: 0.2rem;
+  color: #fff;
+}
+
+/* Tombol spesifik */
+button[data-testid="bookFormSubmitButton"] {
+  background-color: #007bff;
+}
+button[data-testid="searchBookFormSubmitButton"] {
+  background-color: #28a745;
+}
+button[data-testid="bookItemIsCompleteButton"] {
+  background-color: #17a2b8;
+}
+button[data-testid="bookItemDeleteButton"] {
+  background-color: #dc3545;
+}
+button[data-testid="bookItemEditButton"] {
+  background-color: #ffc107;
+  color: black;
+}
+
+/* Tombol hover */
+button:hover {
+  opacity: 0.9;
+}
+
+/* Tombol saat dark mode (tetap kontras) */
+body.dark-mode button[data-testid="bookItemEditButton"] {
+  color: black;
+}
+
+/* Layout rak buku */
+#incompleteBookList,
+#completeBookList {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+/* Kartu buku */
+[data-testid="bookItem"] {
+  background-color: #fff;
+  color: inherit;
+  padding: 1.2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s, transform 0.2s ease;
+}
+
+[data-testid="bookItem"]:hover {
+  transform: translateY(-4px);
+}
+
+body.dark-mode [data-testid="bookItem"] {
+  background-color: #1f1f1f;
+  box-shadow: 0 2px 5px rgba(255, 255, 255, 0.05);
+}
+
+/* Isi dalam kartu */
+[data-testid="bookItem"] h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  transition: color 0.3s;
+}
+
+[data-testid="bookItem"] p {
+  font-size: 0.95rem;
+  margin-bottom: 0.25rem;
+  transition: color 0.3s;
+}
+
+/* Tombol dalam kartu */
+[data-testid="bookItem"] div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+/* Dark mode teks override */
+body.dark-mode label,
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode p {
+  color: #f0f0f0;
+}
+
+/* Tombol Dark Mode Toggle */
+#darkModeToggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 999;
+  padding: 0.6rem 1.2rem;
+  background-color: #ff9800; /* Warna tombol saat Light Mode */
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+#darkModeToggle:hover {
+  background-color: #e68900;
+}
+
+/* Warna tombol saat Dark Mode aktif */
+body.dark-mode #darkModeToggle {
+  background-color: #03a9f4;
+  color: white;
+}
+
+body.dark-mode #darkModeToggle:hover {
+  background-color: #0288d1;
+}
